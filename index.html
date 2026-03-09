@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Note for Zumr</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body, html {
+            height: 100%;
+            background: #0f172a; /* Deep night blue */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #f8fafc;
+            overflow: hidden;
+            transition: background 5s ease;
+        }
+
+        /* --- THE SUNRISE GRADIENT --- */
+        .sunrise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at bottom, #fb923c 0%, #0f172a 70%);
+            opacity: 0;
+            transition: opacity 4s ease;
+            z-index: 1;
+        }
+
+        /* --- THE CONTENT --- */
+        #container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .letter {
+            display: none;
+            line-height: 2;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #cbd5e1;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-left: 1px solid #fb923c;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-start {
+            background: none;
+            border: 1px solid #fb923c;
+            color: #fb923c;
+            padding: 15px 40px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.5s;
+            font-size: 0.8rem;
+        }
+
+        .btn-start:hover {
+            background: #fb923c;
+            color: #0f172a;
+            box-shadow: 0 0 30px rgba(251, 146, 60, 0.4);
+        }
+
+        strong { color: #000680; }
+    </style>
+</head>
+<body>
+
+    <div class="sunrise-bg" id="bg"></div>
+
+    <div id="container">
+        <div id="initial-state">
+            <h1>The storm has passed.</h1>
+            <button class="btn-start" onclick="openLetter()">Lower the Guard</button>
+        </div>
+
+        <div class="letter" id="letterBody">
+            <p>
+                Zumr,<br><br>
+                I messed up. No jokes, no "Kaleshi Malta" banter, just the truth. I acted like a complete idiot while trying to handle my own emotions, and I hate that it cost me your peace. 
+                <br><br>
+                I spent all that time building a "Monolith" to show you how much I value you, and then I went and messed with the frequency myself. I'm sorry for being difficult. 
+                <br><br>
+                You are the <strong>Anchor</strong>. Without the frequency being right between us, nothing else feels solid. 
+                <br><br>
+                Roze me hoon, jhoot nahi bolon ga—I really value what we have, and I hate being the reason you're upset. 
+                <br><br>
+                <strong>Batao. How do I fix this?</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            // 1. Shift the background to Sunrise
+            document.getElementById('bg').style.opacity = '1';
+            
+            // 2. Hide the button state
+            document.getElementById('initial-state').style.display = 'none';
+            
+            // 3. Show the letter
+            const letter = document.getElementById('letterBody');
+            letter.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
